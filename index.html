@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodeNotes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/dracula.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="app">
+ <aside class="sidebar">
+  <div class="brand"><span class="brand-logo">&lt;/&gt;</span><div><b>CodeNotes</b><small>MINI IDE · STUDY MODE</small></div></div>
+  <button id="newNote" class="new-note">＋ <span>Nova nota</span><kbd>Ctrl N</kbd></button>
+  <div class="section-label">EXPLORADOR <span id="noteCount">0</span></div>
+  <div id="notesList" class="notes-list"></div>
+  <div class="side-bottom"><i></i> Salvo neste navegador</div>
+ </aside>
+ <main class="main">
+  <header class="topbar"><div class="crumb">EXPLORADOR <span>/</span> <b id="crumbTitle">Nova nota</b></div><div class="actions"><span id="saveState">● Salvo</span><button id="saveBtn" class="btn">✓ Salvar</button><button id="exportBtn" class="btn">↓ Exportar</button><button id="viewBtn" class="btn primary">▤ Modo folha</button></div></header>
+  <section id="workspace" class="workspace">
+   <section class="editor-pane">
+    <div class="note-meta"><input id="noteTitle" placeholder="Nome da nota..." maxlength="100"><textarea id="noteDescription" rows="2" maxlength="300" placeholder="Descrição ou resumo rápido..."></textarea></div>
+    <div class="tabbar"><div class="file-tab"><span class="file-icon" id="fileIcon">◆</span><span id="fileName">index.html</span><span class="dirty-dot" id="dirtyDot"></span></div><div class="tab-actions"><span id="langLabel">HTML</span><button id="copyBtn" title="Copiar código">▣</button></div></div>
+    <div class="editor-wrap"><div id="editorHost" aria-label="Editor de código"></div><div id="editorFallback" hidden><p>Não foi possível carregar o editor avançado.</p><textarea id="fallbackCode" spellcheck="false"></textarea><small>Verifique sua conexão com a internet e recarregue a página.</small></div></div>
+    <div class="statusbar"><span><i></i> CodeNotes Editor</span><span id="editorStatus">HTML · Autocompletar ativo</span><span id="lineCount">1 linha</span></div>
+   </section>
+   <section class="preview-pane" id="previewPane"><div class="preview-bar"><span><i></i> FOLHA DE ANOTAÇÃO</span><span>PRÉVIA PARA PRINT</span></div><div class="paper-wrap"><article class="paper" id="paper"><div class="paper-top"><b>CODENOTES / CADERNO DE ESTUDOS</b><span id="paperDate"></span></div><h1 id="paperTitle">Minha nota de programação</h1><p id="paperDescription" class="paper-desc">Sua descrição aparecerá aqui.</p><div class="paper-code"><div class="code-head"><span class="dots"><i></i><i></i><i></i></span><span id="paperFile">index.html</span><span id="paperLines">1 linha</span></div><pre><code id="paperCode"></code></pre></div><div class="paper-foot"><span>ANOTAÇÕES DE PROGRAMAÇÃO</span><span id="pageNum">01</span></div></article></div><div class="preview-tip">Dica: no modo folha, use Ctrl + P para imprimir ou salvar em PDF.</div></section>
+  </section>
+  <footer class="footer"><span>CodeNotes <em>v2.0</em></span><span>HTML + CSS · sugestões inteligentes com CodeMirror</span></footer>
+ </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/xml-hint.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/html-hint.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/css-hint.min.js"></script>
+<script src="js/app.js"></script>
+</body></html>
